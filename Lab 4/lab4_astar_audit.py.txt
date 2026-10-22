@@ -1,0 +1,185 @@
+# Lab 4 - Informed Search: Heuristics & A*
+# Rasikh Ali - 42365
+#
+# What this file does:
+#   1. Runs A* on the campus graph and prints every step (g, h, f + frontier)
+#   2. Runs UCS (A* with h = 0) on the same graph and compares
+#   3. Checks if the heuristic is admissible and consistent
+#   4. Changes h(C) from 2 to 10 (overestimate) and shows what breaks
+#
+# A* code is adapted from the guided code in the lab manual (section 4.2).
+
+import heapq
+
+
+# ---------------- the campus graph ----------------
+# S = start building, G = goal building
+# edge weights = travel time units
+
+graph = {
+    "S": [("A", 1), ("B", 4)],
+    "A": [("C", 2)],
+    "B": [("G", 5)],
+    "C": [("G", 3)],
+    "G": [],
+}
+
+# heuristic given in the manual (estimated time left to reach G)
+h_given = {"S": 5, "A": 4, "B": 4, "C": 2, "G": 0}
+
+
+# ---------------- A* search ----------------
+def astar(graph, h, start, goal, show_steps=False):
+    # each queue item is (f, g, node, path)
+    # if two items have the same f, heapq picks smaller g, then node name (A before B)
+    pq = [(h[start], 0, start, [start])]
+    best = {start: 0}         # cheapest g found so far for each node
+
+    processed = []            # every node we popped (not counting stale ones)
+    expanded = []             # nodes whose neighbours we actually looked at
+    step = 0
+
+    while pq:
+        f, g, node, path = heapq.heappop(pq)
+
+        # old entry, we already found a cheaper way to this node -> skip it
+        if g != best[node]:
+            if show_steps:
+                print(f"   (skipped stale entry {node} with g={g})")
+            continue
+
+        processed.append(node)
+
+        if node == goal:
+            if show_steps:
+                print(f"   Popped {node}: g={g}, h={h[node]}, f={g}+{h[node]}={f}  -> GOAL reached")
+            return g, path, processed, expanded
+
+        # now we expand this node
+        expanded.append(node)
+        step += 1
+
+        for nxt, w in graph.get(node, []):
+            ng = g + w
+            if ng < best.get(nxt, float("inf")):
+                best[nxt] = ng
+                heapq.heappush(pq, (ng + h[nxt], ng, nxt, path + [nxt]))
+
+        if show_steps:
+            print(f"   Expansion {step}: {node}  g={g}, h={h[node]}, f={g}+{h[node]}={f}")
+            frontier = sorted(pq)
+            items = [f"{n}(g={gg}, h={h[n]}, f={gg}+{h[n]}={ff})" for ff, gg, n, _ in frontier]
+            print("      frontier now:", ", ".join(items) if items else "empty")
+            if frontier:
+                print(f"      next pick = {frontier[0][2]} because it has the lowest f ({frontier[0][0]})")
+
+    return None, None, processed, expanded
+
+
+def path_cost(graph, path):
+    # add up the edges again by hand, just to double check the cost A* gives
+    total = 0
+    for a, b in zip(path, path[1:]):
+        for nxt, w in graph[a]:
+            if nxt == b:
+                total += w
+    return total
+
+
+# ---------------- heuristic audit ----------------
+def true_cost_to_goal(graph, goal):
+    # real cheapest remaining cost from every node (UCS from each node)
+    real = {}
+    zero = {n: 0 for n in graph}
+    for n in graph:
+        cost, _, _, _ = astar(graph, zero, n, goal)
+        real[n] = cost if cost is not None else float("inf")
+    return real
+
+
+def check_admissible(h, real):
+    print("Admissibility check  (h(n) <= true cost?)")
+    ok = True
+    for n in h:
+        good = h[n] <= real[n]
+        ok = ok and good
+        print(f"   {n}: h={h[n]}, true={real[n]}  -> {'OK' if good else 'OVERESTIMATE'}")
+    print("   Result:", "admissible" if ok else "NOT admissible")
+    return ok
+
+
+def check_consistent(graph, h):
+    print("Consistency check  (h(u) <= cost(u,v) + h(v) for every edge)")
+    ok = True
+    for u in graph:
+        for v, w in graph[u]:
+            good = h[u] <= w + h[v]
+            ok = ok and good
+            print(f"   {u}->{v}: {h[u]} <= {w} + {h[v]} = {w + h[v]}  -> {'OK' if good else 'FAILS'}")
+    print("   Result:", "consistent" if ok else "NOT consistent")
+    return ok
+
+
+def show_result(name, graph, result):
+    cost, path, processed, expanded = result
+    print(f"{name}:")
+    print("   path         :", " -> ".join(path))
+    print("   cost (A*)    :", cost)
+    print("   cost (summed):", path_cost(graph, path))
+    print("   processed    :", processed)
+    print("   expanded     :", expanded, f"=> count = {len(expanded)}")
+
+
+# ---------------- main ----------------
+if __name__ == "__main__":
+    line = "=" * 60
+
+    print(line)
+    print("TASK 1: A* manual trace with the given heuristic")
+    print(line)
+    a_star_run = astar(graph, h_given, "S", "G", show_steps=True)
+    print()
+
+    print(line)
+    print("HEURISTIC AUDIT")
+    print(line)
+    real = true_cost_to_goal(graph, "G")
+    print("True remaining costs:", real)
+    check_admissible(h_given, real)
+    check_consistent(graph, h_given)
+    print()
+
+    print(line)
+    print("TASK 2: A* vs UCS (same graph, same start/goal)")
+    print(line)
+    h_zero = {n: 0 for n in graph}
+    print("UCS trace (h = 0 everywhere):")
+    ucs_run = astar(graph, h_zero, "S", "G", show_steps=True)
+    print()
+    show_result("A*", graph, a_star_run)
+    show_result("UCS", graph, ucs_run)
+    print()
+    print(f"{'Method':<8}{'Path':<14}{'Cost':<6}{'Expanded'}")
+    print(f"{'A*':<8}{'-'.join(a_star_run[1]):<14}{a_star_run[0]:<6}{len(a_star_run[3])}")
+    print(f"{'UCS':<8}{'-'.join(ucs_run[1]):<14}{ucs_run[0]:<6}{len(ucs_run[3])}")
+    print("(goal is not counted as expanded, stale entries are ignored)")
+    print()
+
+    print(line)
+    print("TASK 3: overestimate experiment, h(C) changed 2 -> 10")
+    print(line)
+    h_bad = dict(h_given)
+    h_bad["C"] = 10
+    print(f"h(C) original = {h_given['C']}, new = {h_bad['C']}, true cost from C = {real['C']}")
+    check_admissible(h_bad, real)
+    print()
+    bad_run = astar(graph, h_bad, "S", "G", show_steps=True)
+    print()
+    show_result("A* with bad h", graph, bad_run)
+    print()
+    if bad_run[0] != a_star_run[0]:
+        print(f"Result CHANGED: cost went from {a_star_run[0]} to {bad_run[0]}.")
+        print("The big h(C) made C look far away, so A* reached G through B first")
+        print("and stopped there. The optimal answer was lost.")
+    else:
+        print("Result did not change this time, but that does NOT prove the heuristic is safe.")
