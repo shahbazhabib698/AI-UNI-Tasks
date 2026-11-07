@@ -1,0 +1,127 @@
+Checks executed during project assembly (TF-IDF / standard Python checks only):
+
+task2_chunks.py: PASS
+0 {'id': 'example:0', 'doc': 'example', 'source': 'example.txt', 'start': 0, 'end': 49, 'text': 'Reset your password. Keep recovery codes private.'}
+10 {'id': 'example:0', 'doc': 'example', 'source': 'example.txt', 'start': 0, 'end': 49, 'text': 'Reset your password. Keep recovery codes private.'}
+sentence {'id': 'example:0', 'doc': 'example', 'source': 'example.txt', 'start': 0, 'end': 49, 'text': 'Reset your password. Keep recovery codes private.'}
+Task 2 boundary tests passed.
+
+t_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+task1_chatbot_check.py: PASS
+FAQ behaviour checks passed
+
+t_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+guided_metrics.py: PASS
+Hit@3=0.667; MRR@3=0.500
+
+t_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+create_dataset.py: PASS
+Validated 5 documents and 10 queries.
+Note: this script validates the checked-in expanded dataset; it does not overwrite it.
+
+t_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+scenario1_handbook.py: PASS
+assessment:late score=0.506
+Late submission is normally penalized. Students with illness may request an extension with medical evidence before the deadline.
+
+t_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+scenario2_support.py: PASS
+returns:damage score=0.373
+For a damaged parcel, contact support within 48 hours and attach photographs of the item and packaging.
+
+t_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+scenario3_docs.py: PASS
+auth:v2 score=0.431
+Renew an expired API token with POST /v2/token/refresh. Send the refresh_token field; never print its value in logs.
+
+t_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+scenario4_workplace.py: PASS
+remote:contractor score=0.435
+Contractors may work remotely only when the signed contract explicitly permits remote work.
+
+t_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+scenario5_equipment.py: PASS
+printer:blank score=0.278
+For blank printer pages: 1. Check ink level. 2. Run the printer cleaning utility. 3. Print a test page. Follow the device manual.
+
+t_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+task1_tokens.py: PASS
+\nOriginal: 'AI, search!'
+Whitespace: ['AI,', 'search!'] count: 2
+Word-like: ['AI', 'search'] count: 2
+\nOriginal: "I can't log in."
+Whitespace: ['I', "can't", 'log', 'in.'] count: 4
+Word-like: ['I', 'can', 't', 'log', 'in'] count: 5
+\nOriginal: 'help@example.com'
+Whitespace: ['help@example.com'] count: 1
+Word-like: ['help', 'example', 'com'] count: 3
+\nOriginal: 'CS4944 version 2.1'
+Whitespace: ['CS4944', 'version', '2.1'] count: 3
+Word-like: ['CS4944', 'version', '2', '1'] count: 4
+\nOriginal: ''
+Whitespace: [] count: 0
+Word-like: [] count: 0
+\nOriginal: 'یہ ایک مثال ہے'
+Whitespace: ['یہ', 'ایک', 'مثال', 'ہے'] count: 4
+Word-like: ['یہ', 'ایک', 'مثال', 'ہے'] count: 4
+\nOptional model subword comparison (two English samples):
+Model tokenizer not available: No module named 'sentence_transformers'
+Install sentence-transformers and allow the model to download.
+\nNotes:
+- Whitespace splitting keeps punctuation attached to each token.
+- The regex separates punctuation and splits contractions such as can't.
+- Lowercasing or deleting punctuation can damage case-sensitive IDs, email addresses, negation, and code. Keep original source text.
+- This regex is a simple word-like extractor, not a complete multilingual/Urdu tokenizer.
+
+t_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+Sentence-transformer model evaluation must be run on the user's machine after model download; no embedding scores or timings have been fabricated.

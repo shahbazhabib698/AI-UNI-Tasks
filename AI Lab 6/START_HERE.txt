@@ -1,0 +1,15 @@
+LAB 6 - START HERE
+
+1. Extract this folder.
+2. Open it in VS Code.
+3. Open the terminal in this folder.
+4. Install packages: python -m pip install -r requirements.txt
+5. Run Task 1: python task1_tokens.py
+6. Run Task 2: python task2_chunks.py
+7. Run the FAQ check: python task1_chatbot_check.py
+8. Run Task 3: python task3_retrieval.py
+9. Run the document chatbot: python document_chatbot.py
+
+Task 3 uses a real sentence-transformer model. The first run may take time because the model downloads.
+The report has spaces for actual metrics. Fill them using evaluation_summary.csv after you run Task 3.
+Do not submit invented scores or claim the embedding run worked if it did not.

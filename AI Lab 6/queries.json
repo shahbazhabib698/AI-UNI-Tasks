@@ -1,0 +1,62 @@
+[
+  {
+    "query": "What proof is needed for an illness extension?",
+    "doc": "assessment",
+    "evidence": "Illness extensions require medical evidence before the deadline.",
+    "split": "dev"
+  },
+  {
+    "query": "How can I recover a forgotten login password?",
+    "doc": "it_help",
+    "evidence": "A forgotten password can be reset using the recovery link on the university login page.",
+    "split": "dev"
+  },
+  {
+    "query": "What should I do if my delivered parcel is broken?",
+    "doc": "returns",
+    "evidence": "For a damaged parcel, contact support within 48 hours and attach photographs of the item and packaging.",
+    "split": "dev"
+  },
+  {
+    "query": "Can a contractor work from home?",
+    "doc": "workplace",
+    "evidence": "Contractors may work remotely only when the signed contract explicitly permits remote work.",
+    "split": "dev"
+  },
+  {
+    "query": "My printer gives empty sheets; what steps should I follow?",
+    "doc": "equipment",
+    "evidence": "For blank printer pages: 1. Check ink or toner level. 2. Run the printer cleaning utility from the device software. 3. Print a test page and inspect whether text is visible.",
+    "split": "test"
+  },
+  {
+    "query": "I cannot access my account; how do I get back in?",
+    "doc": "it_help",
+    "evidence": "A forgotten password can be reset using the recovery link on the university login page.",
+    "split": "test"
+  },
+  {
+    "query": "How do I hand in coursework online?",
+    "doc": "assessment",
+    "evidence": "Students should upload coursework through the learning portal before the deadline shown on the course page.",
+    "split": "test"
+  },
+  {
+    "query": "What is the reporting deadline and proof for a damaged delivery?",
+    "doc": "returns",
+    "evidence": "For a damaged parcel, contact support within 48 hours and attach photographs of the item and packaging.",
+    "split": "test"
+  },
+  {
+    "query": "What are tomorrow's flight prices from Lahore?",
+    "doc": null,
+    "evidence": null,
+    "split": "test"
+  },
+  {
+    "query": "Who won yesterday's international football match?",
+    "doc": null,
+    "evidence": null,
+    "split": "test"
+  }
+]
